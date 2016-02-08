@@ -77,9 +77,11 @@
      <None Include="Assets\Standard Assets\ImageEffects\Shaders\frag_ao.cginc" />
      <None Include="Assets\Standard Assets\Monster\shaders\bumpSpecmap.shader" />
      <None Include="Assets\Standard Assets\Monster\shaders\metalA.shader" />
+     <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
      <None Include="Assets\Standard Assets\ImageEffects\Shaders\_DepthOfField\DepthOfField34.shader" />
      <None Include="Assets\Standard Assets\ImageEffects\Shaders\_BloomAndFlares\MobileBlur.shader" />
      <None Include="Assets\Standard Assets\ImageEffects\Shaders\SSAOShader.shader" />
+     <None Include="Assets\Standard Assets\ParticleSystems\ParticleSystemsGuidelines.txt" />
      <None Include="Assets\Standard Assets\ImageEffects\Shaders\ConvertDepth.shader" />
      <None Include="Assets\Standard Assets\ImageEffects\Shaders\ColorCorrectionCurvesSimple.shader" />
      <None Include="Assets\Standard Assets\ImageEffects\Shaders\NoiseEffectShaderYUV.shader" />
@@ -88,6 +90,7 @@
      <None Include="Assets\Standard Assets\ImageEffects\Shaders\ChromaticAberrationShader.shader" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Standard Assets\ImageEffects\Shaders\GlobalFog.shader" />
+     <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAddSoft.shader" />
      <None Include="Assets\Standard Assets\ImageEffects\Shaders\Contrast Stretch\Luminance.shader" />
      <None Include="Assets\Imported Assets\VolumetricLines\Shaders\VolumetricLineShaderAdditiveFast.shader" />
      <None Include="Assets\Standard Assets\ImageEffects\Shaders\ColorCorrectionSelective.shader" />
@@ -127,6 +130,7 @@
      <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\WaterInclude.cginc" />
      <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Advanced.shader" />
      <None Include="Assets\Standard Assets\ImageEffects\Shaders\SimpleClear.shader" />
+     <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAdd.shader" />
      <None Include="Assets\Standard Assets\ImageEffects\Shaders\_Antialiasing\FXAA3Console.shader" />
      <None Include="Assets\Standard Assets\ImageEffects\Shaders\_Antialiasing\FXAAPreset2.shader" />
      <None Include="Assets\Standard Assets\ImageEffects\Shaders\_BloomAndFlares\BlurAndFlares.shader" />

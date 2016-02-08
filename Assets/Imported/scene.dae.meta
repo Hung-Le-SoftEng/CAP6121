@@ -1,0 +1,502 @@
+fileFormatVersion: 2
+guid: 5bcfd830ebcf5834981190914b8431fc
+timeCreated: 1454543808
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Component_1
+    100002: Component_1 1
+    100004: Component_1 2
+    100006: Component_10
+    100008: Component_10 1
+    100010: Component_10 2
+    100012: Component_10 3
+    100014: Component_10 4
+    100016: Component_10 5
+    100018: Component_2
+    100020: Component_3
+    100022: Component_4
+    100024: Component_4 1
+    100026: Component_4 2
+    100028: Component_4 3
+    100030: Component_4 4
+    100032: Component_5
+    100034: Component_8
+    100036: Component_8 1
+    100038: Component_8 2
+    100040: Component_8 3
+    100042: Component_8 4
+    100044: Component_8 5
+    100046: Component_8 6
+    100048: Component_8 7
+    100050: Component_8 8
+    100052: Component_9
+    100054: Component_9 1
+    100056: Component_9 10
+    100058: Component_9 11
+    100060: Component_9 2
+    100062: Component_9 3
+    100064: Component_9 4
+    100066: Component_9 5
+    100068: Component_9 6
+    100070: Component_9 7
+    100072: Component_9 8
+    100074: Component_9 9
+    100076: group_0
+    100078: group_1
+    100080: group_2
+    100082: Group_3
+    100084: ID101
+    100086: ID109
+    100088: ID117
+    100090: ID125
+    100092: ID149
+    100094: ID149 1
+    100096: ID149 2
+    100098: ID157
+    100100: ID157 1
+    100102: ID157 2
+    100104: ID20
+    100106: ID223
+    100108: ID223 1
+    100110: ID223 2
+    100112: ID223 3
+    100114: ID223 4
+    100116: ID223 5
+    100118: ID223 6
+    100120: ID223 7
+    100122: ID223 8
+    100124: ID305
+    100126: ID313
+    100128: ID321
+    100130: ID33
+    100132: ID334
+    100134: ID342
+    100136: ID350
+    100138: ID356
+    100140: ID362
+    100142: ID368
+    100144: ID374
+    100146: ID387
+    100148: ID400
+    100150: ID41
+    100152: ID49
+    100154: ID64
+    100156: ID72
+    100158: ID80
+    100160: ID88
+    100162: Imaginary_Star_Wars_Scene
+    100164: instance_0
+    100166: instance_1
+    100168: instance_10
+    100170: instance_11
+    100172: instance_12
+    100174: instance_13
+    100176: instance_14
+    100178: instance_15
+    100180: instance_16
+    100182: instance_17
+    100184: instance_18
+    100186: instance_19
+    100188: instance_2
+    100190: instance_20
+    100192: instance_21
+    100194: instance_21 1
+    100196: instance_21 2
+    100198: instance_21 3
+    100200: instance_21 4
+    100202: instance_21 5
+    100204: instance_22
+    100206: instance_22 1
+    100208: instance_22 2
+    100210: instance_22 3
+    100212: instance_22 4
+    100214: instance_22 5
+    100216: instance_23
+    100218: instance_24
+    100220: instance_25
+    100222: instance_26
+    100224: instance_27
+    100226: instance_28
+    100228: instance_29
+    100230: instance_3
+    100232: instance_4
+    100234: instance_5
+    100236: instance_6
+    100238: instance_7
+    100240: instance_8
+    100242: instance_9
+    100244: Last Saved SketchUp View
+    100246: //RootNode
+    400000: Component_1
+    400002: Component_1 1
+    400004: Component_1 2
+    400006: Component_10
+    400008: Component_10 1
+    400010: Component_10 2
+    400012: Component_10 3
+    400014: Component_10 4
+    400016: Component_10 5
+    400018: Component_2
+    400020: Component_3
+    400022: Component_4
+    400024: Component_4 1
+    400026: Component_4 2
+    400028: Component_4 3
+    400030: Component_4 4
+    400032: Component_5
+    400034: Component_8
+    400036: Component_8 1
+    400038: Component_8 2
+    400040: Component_8 3
+    400042: Component_8 4
+    400044: Component_8 5
+    400046: Component_8 6
+    400048: Component_8 7
+    400050: Component_8 8
+    400052: Component_9
+    400054: Component_9 1
+    400056: Component_9 10
+    400058: Component_9 11
+    400060: Component_9 2
+    400062: Component_9 3
+    400064: Component_9 4
+    400066: Component_9 5
+    400068: Component_9 6
+    400070: Component_9 7
+    400072: Component_9 8
+    400074: Component_9 9
+    400076: group_0
+    400078: group_1
+    400080: group_2
+    400082: Group_3
+    400084: ID101
+    400086: ID109
+    400088: ID117
+    400090: ID125
+    400092: ID149
+    400094: ID149 1
+    400096: ID149 2
+    400098: ID157
+    400100: ID157 1
+    400102: ID157 2
+    400104: ID20
+    400106: ID223
+    400108: ID223 1
+    400110: ID223 2
+    400112: ID223 3
+    400114: ID223 4
+    400116: ID223 5
+    400118: ID223 6
+    400120: ID223 7
+    400122: ID223 8
+    400124: ID305
+    400126: ID313
+    400128: ID321
+    400130: ID33
+    400132: ID334
+    400134: ID342
+    400136: ID350
+    400138: ID356
+    400140: ID362
+    400142: ID368
+    400144: ID374
+    400146: ID387
+    400148: ID400
+    400150: ID41
+    400152: ID49
+    400154: ID64
+    400156: ID72
+    400158: ID80
+    400160: ID88
+    400162: Imaginary_Star_Wars_Scene
+    400164: instance_0
+    400166: instance_1
+    400168: instance_10
+    400170: instance_11
+    400172: instance_12
+    400174: instance_13
+    400176: instance_14
+    400178: instance_15
+    400180: instance_16
+    400182: instance_17
+    400184: instance_18
+    400186: instance_19
+    400188: instance_2
+    400190: instance_20
+    400192: instance_21
+    400194: instance_21 1
+    400196: instance_21 2
+    400198: instance_21 3
+    400200: instance_21 4
+    400202: instance_21 5
+    400204: instance_22
+    400206: instance_22 1
+    400208: instance_22 2
+    400210: instance_22 3
+    400212: instance_22 4
+    400214: instance_22 5
+    400216: instance_23
+    400218: instance_24
+    400220: instance_25
+    400222: instance_26
+    400224: instance_27
+    400226: instance_28
+    400228: instance_29
+    400230: instance_3
+    400232: instance_4
+    400234: instance_5
+    400236: instance_6
+    400238: instance_7
+    400240: instance_8
+    400242: instance_9
+    400244: Last Saved SketchUp View
+    400246: //RootNode
+    2300000: Component_1
+    2300002: Component_1 1
+    2300004: Component_1 2
+    2300006: Component_2
+    2300008: Component_3
+    2300010: Component_4
+    2300012: Component_4 1
+    2300014: Component_4 2
+    2300016: Component_4 3
+    2300018: Component_4 4
+    2300020: Component_5
+    2300022: Component_8
+    2300024: Component_8 1
+    2300026: Component_8 2
+    2300028: Component_8 3
+    2300030: Component_8 4
+    2300032: Component_8 5
+    2300034: Component_8 6
+    2300036: Component_8 7
+    2300038: Component_8 8
+    2300040: Component_9
+    2300042: Component_9 1
+    2300044: Component_9 10
+    2300046: Component_9 11
+    2300048: Component_9 2
+    2300050: Component_9 3
+    2300052: Component_9 4
+    2300054: Component_9 5
+    2300056: Component_9 6
+    2300058: Component_9 7
+    2300060: Component_9 8
+    2300062: Component_9 9
+    2300064: group_0
+    2300066: group_1
+    2300068: group_2
+    2300070: Group_3
+    2300072: ID101
+    2300074: ID109
+    2300076: ID117
+    2300078: ID149
+    2300080: ID149 1
+    2300082: ID149 2
+    2300084: ID157
+    2300086: ID157 1
+    2300088: ID157 2
+    2300090: ID20
+    2300092: ID223
+    2300094: ID223 1
+    2300096: ID223 2
+    2300098: ID223 3
+    2300100: ID223 4
+    2300102: ID223 5
+    2300104: ID223 6
+    2300106: ID223 7
+    2300108: ID223 8
+    2300110: ID305
+    2300112: ID313
+    2300114: ID321
+    2300116: ID33
+    2300118: ID334
+    2300120: ID342
+    2300122: ID350
+    2300124: ID356
+    2300126: ID362
+    2300128: ID368
+    2300130: ID374
+    2300132: ID387
+    2300134: ID400
+    2300136: ID41
+    2300138: ID64
+    2300140: ID72
+    2300142: ID80
+    2300144: Imaginary_Star_Wars_Scene
+    3300000: Component_1
+    3300002: Component_1 1
+    3300004: Component_1 2
+    3300006: Component_2
+    3300008: Component_3
+    3300010: Component_4
+    3300012: Component_4 1
+    3300014: Component_4 2
+    3300016: Component_4 3
+    3300018: Component_4 4
+    3300020: Component_5
+    3300022: Component_8
+    3300024: Component_8 1
+    3300026: Component_8 2
+    3300028: Component_8 3
+    3300030: Component_8 4
+    3300032: Component_8 5
+    3300034: Component_8 6
+    3300036: Component_8 7
+    3300038: Component_8 8
+    3300040: Component_9
+    3300042: Component_9 1
+    3300044: Component_9 10
+    3300046: Component_9 11
+    3300048: Component_9 2
+    3300050: Component_9 3
+    3300052: Component_9 4
+    3300054: Component_9 5
+    3300056: Component_9 6
+    3300058: Component_9 7
+    3300060: Component_9 8
+    3300062: Component_9 9
+    3300064: group_0
+    3300066: group_1
+    3300068: group_2
+    3300070: Group_3
+    3300072: ID101
+    3300074: ID109
+    3300076: ID117
+    3300078: ID149
+    3300080: ID149 1
+    3300082: ID149 2
+    3300084: ID157
+    3300086: ID157 1
+    3300088: ID157 2
+    3300090: ID20
+    3300092: ID223
+    3300094: ID223 1
+    3300096: ID223 2
+    3300098: ID223 3
+    3300100: ID223 4
+    3300102: ID223 5
+    3300104: ID223 6
+    3300106: ID223 7
+    3300108: ID223 8
+    3300110: ID305
+    3300112: ID313
+    3300114: ID321
+    3300116: ID33
+    3300118: ID334
+    3300120: ID342
+    3300122: ID350
+    3300124: ID356
+    3300126: ID362
+    3300128: ID368
+    3300130: ID374
+    3300132: ID387
+    3300134: ID400
+    3300136: ID41
+    3300138: ID64
+    3300140: ID72
+    3300142: ID80
+    3300144: Imaginary_Star_Wars_Scene
+    4300000: Imaginary_Star_Wars_Scene
+    4300002: ID305
+    4300004: ID313
+    4300006: ID321
+    4300008: ID334
+    4300010: ID342
+    4300012: ID350
+    4300014: ID356
+    4300016: ID362
+    4300018: ID368
+    4300020: ID374
+    4300022: ID387
+    4300024: ID400
+    4300026: group_0
+    4300028: ID20
+    4300030: ID33
+    4300032: ID41
+    4300034: group_1
+    4300036: ID64
+    4300038: ID72
+    4300040: ID80
+    4300042: group_2
+    4300044: ID101
+    4300046: ID109
+    4300048: ID117
+    4300050: Component_1
+    4300052: ID149
+    4300054: ID157
+    4300056: Group_3
+    4300058: Component_3
+    4300060: Component_4
+    4300062: Component_8
+    4300064: ID223
+    4300066: Component_9
+    4300068: Component_2
+    4300070: Component_5
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

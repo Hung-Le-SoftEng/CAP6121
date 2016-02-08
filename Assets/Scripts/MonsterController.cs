@@ -34,7 +34,7 @@ public class MonsterController : MonoBehaviour {
     public GameObject bullet;
     public float bulletSpeed = 10f;
     public bool shoot = false;
-
+    public bool attack = false;
 
 
 	// Use this for initialization
@@ -51,7 +51,11 @@ public class MonsterController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (target != null) {
+        if (enemy == null) {
+            enemy = GameObject.FindGameObjectWithTag("Player").transform;
+        }
+
+        if (enemy != null) {
             navAgent.SetDestination(enemy.position);
             animator.SetBool("grounded", grounded);
             animator.SetFloat("speed", navAgent.velocity.magnitude, dampTime, 0.2f);
@@ -64,6 +68,17 @@ public class MonsterController : MonoBehaviour {
             rb.velocity = transform.forward * bulletSpeed;
 
             shoot = false;
+        }
+
+        if (attack) {
+            AnimatorStateInfo currentState = animator.GetCurrentAnimatorStateInfo(0);
+		    if (currentState.length == 0)
+			{
+				int attackrandom = Random.Range(0,4);
+				animator.SetFloat("random",attackrandom);
+				animator.SetBool("attack",true);
+   				
+			}
         }
 
 	}
