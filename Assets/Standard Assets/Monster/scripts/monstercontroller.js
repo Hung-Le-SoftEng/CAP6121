@@ -149,7 +149,6 @@ function FixedUpdate()
    				var attackrandom : int = Random.Range(0,4);
 				animator.SetFloat("random",attackrandom);
 				animator.SetBool("attack",true);
-   				
 			}
 
 			

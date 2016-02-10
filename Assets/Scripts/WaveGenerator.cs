@@ -8,6 +8,8 @@ public class WaveGenerator : MonoBehaviour {
     public float distance = 10;
     public float waveFreq = 1;
 
+    public float stunTime = 10f;
+
     private float timer = 0f;
 	// Use this for initialization
 
@@ -30,6 +32,15 @@ public class WaveGenerator : MonoBehaviour {
         if (timer >= 1 / waveFreq) {
 
             Instantiate(wave, transform.position, transform.rotation);
+
+            // use overlap sphere to find monster and stunt them
+            Collider[] objectsInRange = Physics.OverlapSphere(transform.position, distance);
+            foreach (Collider obj in objectsInRange) {
+                if (obj.tag == "Enemy") {
+                    obj.GetComponent<MonsterController>().stunnedTimer = stunTime;
+                }
+            }
+
 
             timer -= 1 / waveFreq;
         }

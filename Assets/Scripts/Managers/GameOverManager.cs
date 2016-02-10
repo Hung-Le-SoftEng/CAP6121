@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameOverManager : MonoBehaviour
 {
@@ -32,7 +33,8 @@ public class GameOverManager : MonoBehaviour
             if (restartTimer >= restartDelay)
             {
                 // .. then reload the currently loaded level.
-                Application.LoadLevel(Application.loadedLevel);
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
             }
         }
     }

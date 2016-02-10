@@ -18,6 +18,12 @@ public class GrabThrow : MonoBehaviour {
     public GameObject testGrabObject;
 
 
+    public GameObject lightSaber;
+    public GameObject waveBullet;
+    public GameObject lightBullet;
+
+    public GameObject aimTarget;
+    public LineRenderer lineRenderer;
 
     private Kinect.HandState previousHandState = Kinect.HandState.Unknown;
     private GameObject currentlyGrabbedObj;
@@ -30,8 +36,7 @@ public class GrabThrow : MonoBehaviour {
 
     private int counter = 0;
 
-    private GameObject lightSaber;
-
+    
     // Use this for initialization
     void Start () {
 
@@ -42,7 +47,6 @@ public class GrabThrow : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
 
         if (bodySourceManager == null)
         {
@@ -112,29 +116,43 @@ public class GrabThrow : MonoBehaviour {
 
         //////////////////////////////////////////
         // Everything after this is getting data of the body and manipulate the world
+        ScoreManager.ready = true;
 
 
-
-        // still holding the object
-        if (currentTrackedObject.HandRightState == Kinect.HandState.Closed && grabbed)
+        // if holding something and left hand is closed, move the object according to hand movement
+        if (currentTrackedObject.HandLeftState == Kinect.HandState.Closed && grabbed)
         {
             Debug.Log("Holding Object");
             DragObject();
-            
         }
 
-        // if specific action is detected, attempt to grab the object
-        else if (!grabbed && currentTrackedObject.HandRightState == Kinect.HandState.Closed)
+        // if not holding anything and left hand is closed, attempt to grab the object in the desired direction
+        else if (!grabbed && currentTrackedObject.HandLeftState == Kinect.HandState.Closed)
         {
             Debug.Log("Trying to Grab Object");
             GrabObject();
         }
 
         // release hand while holding something will initiate throw
-        else if(currentTrackedObject.HandRightState == Kinect.HandState.Open && grabbed)
+        else if (currentTrackedObject.HandLeftState == Kinect.HandState.Open && grabbed)
         {
             Debug.Log("Throwing Object");
             ThrowObject();
+        }
+
+        // shoot wave bullet if two hand open
+        else if (currentTrackedObject.HandLeftState == Kinect.HandState.Open && currentTrackedObject.HandRightState == Kinect.HandState.Open) {
+
+            Debug.Log("Wave Attack");
+            UpdateAimTarget();
+            GetComponent<Shooting>().Shoot(waveBullet, aimTarget.transform.position, aimTarget.transform.rotation);
+        }
+
+        // shoot wave bullet if left hand open and not holding anything
+        else if (currentTrackedObject.HandLeftState == Kinect.HandState.Open) {
+            Debug.Log("Bullet Attack");
+            UpdateAimTarget();
+            GetComponent<Shooting>().Shoot(lightBullet, aimTarget.transform.position, aimTarget.transform.rotation);
         }
 
         // other action should reset holding state
@@ -145,11 +163,13 @@ public class GrabThrow : MonoBehaviour {
             grabbed = false;
         }
 
+        
+
         //Debug.Log(currentTrackedObject.HandRightState);
         //Debug.Log(previousHandState);
         previousHandState = currentTrackedObject.HandRightState;
 
-        CursorDraw();
+        SaberControl();
     }
 
 
@@ -159,6 +179,26 @@ public class GrabThrow : MonoBehaviour {
         originalHandPos = new Vector3(currentTrackedObject.Joints[Kinect.JointType.HandRight].Position.X,
                                         currentTrackedObject.Joints[Kinect.JointType.HandRight].Position.Y,
                                         currentTrackedObject.Joints[Kinect.JointType.HandRight].Position.Z);
+
+
+        Vector3 WristPos = transform.right * currentTrackedObject.Joints[Kinect.JointType.WristRight].Position.X +
+            transform.up * currentTrackedObject.Joints[Kinect.JointType.WristRight].Position.Y +
+            transform.forward * -currentTrackedObject.Joints[Kinect.JointType.WristRight].Position.Z;
+        WristPos += transform.position;
+
+        Vector3 TipPos = transform.right * currentTrackedObject.Joints[Kinect.JointType.HandTipRight].Position.X +
+            transform.up * currentTrackedObject.Joints[Kinect.JointType.HandTipRight].Position.Y +
+            transform.forward * -currentTrackedObject.Joints[Kinect.JointType.HandTipRight].Position.Z;
+        TipPos += transform.position;
+
+        RaycastHit hit;
+        Ray ray = new Ray(WristPos + (transform.forward * currentTrackedObject.Joints[Kinect.JointType.WristRight].Position.Z * 2), (TipPos - WristPos));
+        if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.tag == "Draggable")
+        {
+            currentlyGrabbedObj = hit.collider.gameObject;
+            originalObjectPos = currentlyGrabbedObj.transform.position;
+            grabbed = true;
+        }
 
 
         //Debug.Log("Transform Pos: " + transform.position);
@@ -177,8 +217,8 @@ public class GrabThrow : MonoBehaviour {
 
         /////////////////////////////////////////////////////
         // Testing Section
-        originalObjectPos = testGrabObject.transform.position;
-        grabbed = true;
+        //originalObjectPos = testGrabObject.transform.position;
+        //grabbed = true;
         
 
     }
@@ -191,7 +231,7 @@ public class GrabThrow : MonoBehaviour {
                                         currentTrackedObject.Joints[Kinect.JointType.HandRight].Position.Y - originalHandPos.y,
                                         currentTrackedObject.Joints[Kinect.JointType.HandRight].Position.Z - originalHandPos.z);
 
-        if (testGrabObject != null)
+        if (currentlyGrabbedObj != null)
         {
             //Debug.Log("Original Pos: " + testGrabObject.transform.position);
             //Debug.Log("Delta Pos: " + deltaDir);
@@ -199,11 +239,11 @@ public class GrabThrow : MonoBehaviour {
             Vector3 forceDir = transform.right * deltaDir.x * speed.x + transform.up * deltaDir.y * speed.y + transform.forward * -deltaDir.z * speed.z;
 
             //testGrabObject.GetComponent<Rigidbody>().AddForce(transform.right * deltaDir.x * speed.x + transform.up * deltaDir.y * speed.y + transform.forward * -deltaDir.z * speed.z);
-            testGrabObject.GetComponent<Rigidbody>().MovePosition(originalObjectPos + forceDir);
+            currentlyGrabbedObj.GetComponent<Rigidbody>().MovePosition(originalObjectPos + forceDir);
 
             if (counter % 5 == 0)
             {
-                prevObjectPos = testGrabObject.transform.position;
+                prevObjectPos = currentlyGrabbedObj.transform.position;
                 counter = 0;
             }
             counter++;
@@ -215,17 +255,19 @@ public class GrabThrow : MonoBehaviour {
     void ThrowObject()
     {
         // calculate the velocity
-        Vector3 velocity = testGrabObject.transform.position - prevObjectPos;
-        testGrabObject.GetComponent<Rigidbody>().velocity = (velocity) / Time.deltaTime;
+        Vector3 velocity = currentlyGrabbedObj.transform.position - prevObjectPos;
+        currentlyGrabbedObj.GetComponent<Rigidbody>().velocity = (velocity) / Time.deltaTime;
         Debug.Log(velocity);
-
 
         grabbed = false;
     }
 
 
-    void CursorDraw()
+    void SaberControl()
     {
+
+        if (lightSaber == null)
+            return;
 
         Vector3 HandPos = transform.right * currentTrackedObject.Joints[Kinect.JointType.HandRight].Position.X + 
             transform.up * currentTrackedObject.Joints[Kinect.JointType.HandRight].Position.Y + 
@@ -242,9 +284,35 @@ public class GrabThrow : MonoBehaviour {
             transform.forward * -currentTrackedObject.Joints[Kinect.JointType.HandTipRight].Position.Z;
         TipPos += transform.position;
 
-
+        lightSaber.transform.position = WristPos + (transform.forward * currentTrackedObject.Joints[Kinect.JointType.WristRight].Position.Z * 2);
+        lightSaber.transform.rotation = Quaternion.LookRotation(TipPos - WristPos);
+        
         Debug.DrawRay(WristPos + (transform.forward * currentTrackedObject.Joints[Kinect.JointType.WristRight].Position.Z * 2), (TipPos - WristPos).normalized * 3, Color.red, 1f);
         //Debug.DrawRay(WristPos, (HandPos - WristPos).normalized * 3, Color.red, 1f);
         //Debug.DrawRay(transform.position, (HandPos - transform.position).normalized * 3, Color.green, 1f);
+    }
+
+
+    void UpdateAimTarget() {
+        Vector3 ElbowPos = transform.right * currentTrackedObject.Joints[Kinect.JointType.ElbowLeft].Position.X +
+            transform.up * currentTrackedObject.Joints[Kinect.JointType.ElbowLeft].Position.Y +
+            transform.forward * -currentTrackedObject.Joints[Kinect.JointType.ElbowLeft].Position.Z;
+        ElbowPos += transform.position;
+
+        Vector3 WristPos = transform.right * currentTrackedObject.Joints[Kinect.JointType.WristLeft].Position.X +
+            transform.up * currentTrackedObject.Joints[Kinect.JointType.WristLeft].Position.Y +
+            transform.forward * -currentTrackedObject.Joints[Kinect.JointType.WristLeft].Position.Z;
+        WristPos += transform.position;
+
+        aimTarget.transform.position = WristPos + (transform.forward * currentTrackedObject.Joints[Kinect.JointType.WristLeft].Position.Z * 2);
+        aimTarget.transform.rotation = Quaternion.LookRotation(WristPos - ElbowPos);
+    }
+
+    void UpdateLineRenderer() {
+        if (!lineRenderer)
+            return;
+
+        lineRenderer.SetPosition(0, aimTarget.transform.position);
+
     }
 }

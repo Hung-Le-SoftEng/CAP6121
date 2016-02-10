@@ -25,6 +25,10 @@ public class EnemySpawning : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (!ScoreManager.ready)
+            return;
+
         if (Enemy == null)
         {
             return;
@@ -55,7 +59,7 @@ public class EnemySpawning : MonoBehaviour
             GameObject gameObj = (GameObject)Instantiate(Enemy, origin, Quaternion.LookRotation(targetDirection));
             //gameObj.transform.rotation = Quaternion.LookRotation(targetDirection);
 
-            Rigidbody rb = gameObj.GetComponent<Rigidbody>();
+            //Rigidbody rb = gameObj.GetComponent<Rigidbody>();
             //rb.velocity = targetDirection.normalized * bulletSpeed;
 
             Spawning = false;
@@ -66,7 +70,6 @@ public class EnemySpawning : MonoBehaviour
         {
             Spawning = true;
             timer = spawningRate + Random.Range(-spawningDeviation, spawningDeviation);
-
         }
     }
 }

@@ -29,9 +29,13 @@ public class MysteriousShooter : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (!ScoreManager.ready)
+            return;
+        
         if (bullet == null) {
             return;
         }
+
 
         if (shooting) {
             // randomly generate position vector where the bullet will be spawn

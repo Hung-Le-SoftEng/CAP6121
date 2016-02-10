@@ -89,6 +89,7 @@
      <None Include="Assets\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />
      <None Include="Assets\Standard Assets\ImageEffects\Shaders\ChromaticAberrationShader.shader" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
+     <None Include="Assets\Fonts\LuckiestGuy\LICENSE.txt" />
      <None Include="Assets\Standard Assets\ImageEffects\Shaders\GlobalFog.shader" />
      <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAddSoft.shader" />
      <None Include="Assets\Standard Assets\ImageEffects\Shaders\Contrast Stretch\Luminance.shader" />
@@ -96,6 +97,7 @@
      <None Include="Assets\Standard Assets\ImageEffects\Shaders\ColorCorrectionSelective.shader" />
      <None Include="Assets\Standard Assets\ImageEffects\Shaders\_DepthOfField\Bokeh34.shader" />
      <None Include="Assets\Standard Assets\Monster\shaders\caveShader.shader" />
+     <None Include="Assets\Shaders\GhostShaders.shader" />
      <None Include="Assets\Standard Assets\ImageEffects\Shaders\CameraMotionBlurDX11.shader" />
      <None Include="Assets\Standard Assets\ImageEffects\Shaders\_BloomAndFlares\SeparableBlurPlus.shader" />
      <None Include="Assets\Standard Assets\ImageEffects\Shaders\_BloomAndFlares\MultiPassHollywoodFlares.shader" />
@@ -174,6 +176,8 @@
       <Project>{94FB4D80-4144-DBE7-CD06-A2DBE01F88F2}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
     <ProjectReference Include="Assembly-CSharp.csproj">
       <Project>{4F1142BF-5546-9853-3A8D-B2D250256C7D}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
+    <ProjectReference Include="Assembly-CSharp-Editor-firstpass.csproj">
+      <Project>{62C97E3A-277B-9854-77BF-5B00E07972AD}</Project>      <Name>Assembly-CSharp-Editor-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

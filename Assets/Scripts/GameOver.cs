@@ -1,10 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour {
 
     public PlayerHealth playerhealth;
-    Animator anim;
+    private float restartDelay = 5f;
+    
+    private Animator anim;
+    private float restartTimer = 0;                     // Timer to count up to restarting the level
+
 
     // Use this for initialization
     void Start () {
@@ -21,6 +26,17 @@ public class GameOver : MonoBehaviour {
             // ... tell the animator the game is over.
             //Debug.Log("Game Over");
             anim.SetTrigger("GameOver");
+
+            // .. increment a timer to count up to restarting.
+            restartTimer += Time.deltaTime;
+
+            // .. if it reaches the restart delay...
+            if (restartTimer >= restartDelay) {
+                // .. then reload the currently loaded level.
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                restartTimer = 0;
+            }
+            
         }
     }
 }
